@@ -30,6 +30,7 @@ function adicionarUsuarioNaTela(nomeUsuario, emailUsuario, senhaUsuario) {
     colunaTabelaNome.innerText = nomeUsuario;
     //vinculando a coluna do nome a minha 'linhaTabelaUsuario'(tr)
     linhaTabelaUsuario.appendChild(colunaTabelaNome);
+}
 
 function configurarEventos() {
     console.log("Pagina carregada");
