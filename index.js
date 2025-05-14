@@ -31,23 +31,6 @@ function adicionarUsuarioNaTela(nomeUsuario, emailUsuario, senhaUsuario) {
     //vinculando a coluna do nome a minha 'linhaTabelaUsuario'(tr)
     linhaTabelaUsuario.appendChild(colunaTabelaNome);
 
-    //---- APARECER E-MAIL E SENHA NA TABELA -----
-
-    //criando a coluna(td) onde será mostrado o e-mail do usuário
-    const colunaTabelaEmail = document.createElement("td");
-    //atribuindo o valor da variável 'emailUsuário' a minha coluna do e-mail
-    colunaTabelaEmail.innerText = emailUsuario;
-    //vinculando a coluna do e-mail a minha 'linhaTabelaUsuario'(tr)
-    linhaTabelaUsuario.appendChild(colunaTabelaEmail);
-
-    //criando a coluna(td) onde será mostrado a senha do usuário
-    const colunaTabelaSenha = document.createElement("td");
-    //atribuindo o valor da variável 'senhaUsuario' a minha coluna da senha
-    colunaTabelaSenha.innerText = senhaUsuario;
-    //vinculando a coluna da senha a minha 'linhaTabelaUsuario'(tr)
-    linhaTabelaUsuario.appendChild(colunaTabelaSenha);
-}
-
 function configurarEventos() {
     console.log("Pagina carregada");
     const botaoRegistro = document.getElementById("botaoRegistrar");
