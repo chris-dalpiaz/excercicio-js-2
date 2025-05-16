@@ -4,18 +4,24 @@ let listaUsuarios = [];
 function registrarUsuario() {
     //pegando o 'inputNome' e definindo a variável 'nome' com o valor do 'inputNome'
     const inputNome = document.getElementById("inputNome");
-    const nome = inputNome.value;
+    const nomeUsuario = inputNome.value;
 
     //pegando o 'inputEmail' e definindo a variável 'email' com o valor do 'inputEmail'
     const inputEmail = document.getElementById("inputEmail");
-    const email = inputEmail.value;
+    const emailUsuario = inputEmail.value;
 
     //pegando o 'inputSenha' e definindo a variável 'senha' com o valor do 'inputSenha'
     const inputSenha = document.getElementById("inputSenha");
-    const senha = inputSenha.value;
+    const senhaUsuario = inputSenha.value;
 
-    //definindo uma matriz com cada lista
-    listaUsuarios.push([nome, email, senha]);
+    let novoUsuario = {
+        nome : nomeUsuario,
+        email : emailUsuario,
+        senha : senhaUsuario
+    }
+
+    //adicionando na lista meu objeto
+    listaUsuarios.push(novoUsuario);
 
     //salvando a matriz no localStorage
     localStorage.setItem("listaDeUsuarios", JSON.stringify(listaUsuarios));
@@ -26,11 +32,13 @@ function carregarListas() {
     //Se houver dados (storage não for null), listaUsuarios recebe esses dados. 
     //Caso contrário, listaUsuarios é inicializada como uma lista vazia.
     listaUsuarios = storage ? storage : [];
-    for (let usuario of listaUsuarios) {
-        //percorrendo as posições da minha matriz
-        nome = usuario[0];
-        email = usuario[1];
-        senha = usuario[2];
+    for (let i = 0; i<listaUsuarios.length; i++) {
+        //o i ao invés de ser a posição da lista, é o objeto dentro da lista, por isso o mesmo possui 
+        //os atributos do objeto 
+        const usuario = listaUsuarios[i];
+        nome = usuario.nome;
+        email = usuario.email;
+        senha = usuario.senha;
 
         //chamando a função 'adicionarUsuarioNaTela', colocando cada variável em seu lugar
         adicionarUsuarioNaTela(nome, email, senha);
